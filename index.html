@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DS Interiors — Transforming Spaces</title>
+  <meta name="description" content="DS Interiors - Transforming spaces into timeless elegance" />
+  <style>
+    /* ----- Reset & base ----- */
+    :root{
+      --bg:#0f0f10;
+      --card:#111214;
+      --muted:#bfc3c8;
+      --accent:#e9e6e1;
+      --glass: rgba(255,255,255,0.03);
+      --accent-2: #c19a6b;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#0b0b0c 0%, #0f0f10 100%);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block; height:auto}
+
+    /* ----- container ----- */
+    .container{max-width:1200px; margin:0 auto; padding:28px;}
+
+    /* ----- header ----- */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding-top:8px;
+      padding-bottom:8px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:56px; height:56px; border-radius:10px;
+      background:linear-gradient(135deg,#222,#2b2b2d);
+      display:flex; align-items:center; justify-content:center;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:0 6px 20px rgba(0,0,0,0.6);
+      font-weight:700; color:var(--accent-2);
+    }
+    .brand h1{margin:0; font-size:18px; letter-spacing:0.2px}
+    nav{display:flex; gap:14px; align-items:center}
+    .nav-link{font-size:14px; color:var(--muted); padding:8px 12px; border-radius:8px}
+    .nav-link:hover{background:rgba(255,255,255,0.02); color:var(--accent)}
+
+    /* ----- hero ----- */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:36px;
+      align-items:center;
+      margin-top:28px;
+      margin-bottom:36px;
+    }
+    .hero-left{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:32px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    .kicker{font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px}
+    .title{font-size:36px; margin:0 0 12px; color:var(--accent); line-height:1.05}
+    .subtitle{color:var(--muted); margin-bottom:18px}
+    .cta-row{display:flex; gap:12px; align-items:center}
+    .btn{
+      background:linear-gradient(90deg,var(--accent-2), #b67845);
+      color:#fff; padding:12px 18px; border-radius:10px; font-weight:600;
+      box-shadow:0 10px 30px rgba(176,135,87,0.12);
+      border:none; cursor:pointer;
+    }
+    .btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--accent); padding:10px 16px}
+
+    /* small stat cards below hero */
+    .stats{display:flex; gap:12px; margin-top:18px}
+    .stat{
+      background:var(--glass);
+      padding:14px;
+      border-radius:12px;
+      flex:1;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .stat h4{margin:0; font-size:18px; color:var(--accent)}
+    .stat p{margin:4px 0 0; color:var(--muted); font-size:13px}
+
+    /* hero-right: image card */
+    .card{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(180deg,#0f0f10,#0b0b0c);
+      padding:0;
+    }
+    .card img{display:block; width:100%; height:100%; object-fit:cover}
+
+    /* sections */
+    section{margin:46px 0}
+    .section-title{display:flex; align-items:center; gap:12px; margin-bottom:18px}
+    .section-title h2{margin:0; font-size:22px; color:var(--accent)}
+    .section-title p{margin:0; color:var(--muted); font-size:14px}
+
+    /* services grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+    .service{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
+      min-height:120px;
+    }
+    .service h3{margin:0 0 8px; font-size:16px}
+    .service p{margin:0; color:var(--muted); font-size:13px}
+
+    /* gallery */
+    .gallery{display:grid; grid-template-columns: repeat(3,1fr); gap:10px}
+    .gallery img{width:100%; height:200px; object-fit:cover; border-radius:10px; border:1px solid rgba(255,255,255,0.03)}
+
+    /* process */
+    .process{display:flex; gap:18px; flex-wrap:wrap}
+    .step{
+      flex:1; min-width:220px;
+      background:var(--card); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
+    }
+    .step h4{margin:0 0 8px}
+
+    /* testimonial */
+    .testimonial{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
+      display:flex; gap:14px; align-items:flex-start;
+    }
+    .avatar{width:64px; height:64px; border-radius:12px; overflow:hidden; flex-shrink:0}
+    .avatar img{width:100%; height:100%; object-fit:cover}
+    .t-text{color:var(--muted); font-size:14px}
+
+    footer{
+      margin-top:36px; padding:20px 0; border-top:1px solid rgba(255,255,255,0.03);
+      color:var(--muted); font-size:14px; display:flex; justify-content:space-between; align-items:center;
+    }
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; padding-bottom:6px}
+      .hero-right{order:-1}
+      .gallery{grid-template-columns: repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .brand h1{font-size:16px}
+      .gallery img{height:140px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">DS</div>
+        <div>
+          <h1>DS Interiors</h1>
+          <div style="font-size:12px;color:var(--muted)">Crafting elegant living spaces</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#work">Projects</a>
+        <a class="nav-link" href="#process">Process</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero">
+      <div class="hero-left">
+        <div class="kicker">Interiors & Renovation</div>
+        <h2 class="title">Transforming Spaces into<br/>Timeless Elegance</h2>
+        <p class="subtitle">We design and deliver living spaces that are stylish, functional, and uniquely yours — turnkey interiors, modular kitchens, wardrobes and full home renovation.</p>
+
+        <div class="cta-row">
+          <button class="btn">Request a Quote</button>
+          <button class="btn ghost">See Portfolio</button>
+        </div>
+
+        <div class="stats" style="margin-top:20px">
+          <div class="stat">
+            <h4>40+</h4>
+            <p>Projects</p>
+          </div>
+          <div class="stat">
+            <h4>2k+</h4>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat">
+            <h4>10</h4>
+            <p>Awards</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card hero-right" aria-hidden="true">
+        <!-- Replace this image with your hero photo -->
+        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5a2c5b6b9a9d6e5d7c8a6d3c9b9ef0f2" alt="Interiors hero">
+      </aside>
+    </main>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-title">
+        <h2>What We Do</h2>
+        <p style="margin-left:auto">Full-service interior design & turnkey execution</p>
+      </div>
+
+      <div class="grid">
+        <div class="service">
+          <h3>Turnkey Interiors</h3>
+          <p>Design, procurement and execution — complete end-to-end projects delivered on time.</p>
+        </div>
+        <div class="service">
+          <h3>Modular Kitchens</h3>
+          <p>Custom kitchens with premium hardware and smart storage solutions.</p>
+        </div>
+        <div class="service">
+          <h3>Wardrobes & Storage</h3>
+          <p>Space-efficient wardrobes tailored to your lifestyle and finish choices.</p>
+        </div>
+        <div class="service">
+          <h3>Renovation & Restoration</h3>
+          <p>Breathing new life into older homes with thoughtful upgrades and finishes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="work">
+      <div class="section-title">
+        <h2>Recent Projects</h2>
+        <p style="margin-left:auto">A selection of finished homes and interiors</p>
+      </div>
+
+      <div class="gallery" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1598300106468-6f5aa2b6f0b9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8ff2e3b1f2ab4e8e6f0a3c8f9a123456" alt="project 1">
+        <img src="https://images.unsplash.com/photo-1618221461057-76a32c2f5e7b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef1234567890abcdef1234567890" alt="project 2">
+        <img src="https://images.unsplash.com/photo-1618221461057-46b9f7d3c7aa?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=123456abcdef123456abcdef123456ab" alt="project 3">
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-title">
+        <h2>Our Working Process</h2>
+        <p style="margin-left:auto">From idea to execution</p>
+      </div>
+
+      <div class="process">
+        <div class="step">
+          <h4>1. Concept & Design</h4>
+          <p>We understand requirements, create mood-boards and produce 3D visuals & drawings.</p>
+        </div>
+        <div class="step">
+          <h4>2. Materials & Specs</h4>
+          <p>Choose finishes, fittings and finalize schedules with transparent costing.</p>
+        </div>
+        <div class="step">
+          <h4>3. Execution</h4>
+          <p>Project management, skilled trades, and timely delivery with quality control.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section id="testimonials">
+      <div class="section-title">
+        <h2>What People Say</h2>
+        <p style="margin-left:auto">Client feedback & reviews</p>
+      </div>
+
+      <div class="testimonial">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdefabcdefabcdefabcdefabcdefab" alt="client"></div>
+        <div>
+          <strong style="display:block;color:var(--accent)">Sakshi M.</strong>
+          <p class="t-text">“DS Interiors turned our cramped apartment into a bright, functional home — everything was handled professionally and on time.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p style="margin-left:auto">Let's discuss your project</p>
+      </div>
+
+      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center">
+        <div style="flex:1; min-width:260px">
+          <p style="color:var(--muted)">Phone: <strong style="color:var(--accent)">+91 98765 43210</strong></p>
+          <p style="color:var(--muted)">Email: <strong style="color:var(--accent)">hello@dsinteriors.com</strong></p>
+          <p style="color:var(--muted)">Office: 32 Cineprime Mall, Mira Road (E)</p>
+        </div>
+        <div style="min-width:280px">
+          <form onsubmit="alert('Form submitted (demo)'); return false;" style="display:grid; gap:8px;">
+            <input required placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent)">
+            <input required placeholder="Phone or email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent)">
+            <textarea placeholder="Project details (optional)" rows="3" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent)"></textarea>
+            <button class="btn" type="submit">Send Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© DS Interiors. All rights reserved.</div>
+      <div style="opacity:0.8">Made with care • <a href="#contact">Get in touch</a></div>
+    </footer>
+  </div>
+</body>
+</html>
